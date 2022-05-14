@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Programowanie interaktywne</title>
+</head>
+<body>
+    <h1 id="nagłówek">Hello world</h1>
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+<script>
+var przesunięcieZLewej = 0;
+var przesunięcieZGóry = 0;
+var przesunięcieZPrawej = 200;
+var przesunięcieZDołu = 200;
+
+
+
+var przesuwajNagłówekPrawo = function () {
+    $("#nagłówek").offset({ left: przesunięcieZLewej});
+
+    przesunięcieZLewej++;
+ 
+
+    if (przesunięcieZLewej > 200 ) {
+    przesunięcieZLewej = 200;
+            $("#nagłówek").offset ({ top: przesunięcieZGóry});
+
+        przesunięcieZGóry++;
+
+        if (przesunięcieZGóry >= 200) {
+            przesunięcieZGóry = 200;
+
+
+            $("#nagłówek").offset ({ left: przesunięcieZPrawej});
+
+           przesunięcieZPrawej--;
+
+           if (przesunięcieZPrawej <= 0 ) {
+               przesunięcieZPrawej = 0;
+
+               $("#nagłówek").offset ({top: przesunięcieZDołu});
+
+               przesunięcieZDołu--;
+
+               if (przesunięcieZDołu <= 0) {
+                   przesunięcieZDołu = 0;
+               }
+
+           }
+ 
+            
+
+        
+        }
+
+
+    }
+
+
+}; 
+
+setInterval(przesuwajNagłówekPrawo, 10);
+
+
+
+
+</script>
+</body>
+</html>
